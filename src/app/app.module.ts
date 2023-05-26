@@ -19,6 +19,9 @@ import { ConfiguracionComponent } from './componentes/configuracion/configuracio
 import { NoEncontradoComponent } from './componentes/no-encontrado/no-encontrado.component';
 import { PiePaginaComponent } from './componentes/pie-pagina/pie-pagina.component';
 import { ClienteService } from './services/cliente.service';
+import { AuthGuard } from './guardianes/auth.guard';
+import { LoginService } from './services/login.service';
+import { ConfiguracionGuard } from './guardianes/configuracion.guard';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,12 @@ import { ClienteService } from './services/cliente.service';
     AngularFireAuthModule,
     FormsModule
   ],
-  providers: [ClienteService],
+  providers: [
+    ClienteService,
+    LoginService,
+    AuthGuard,
+    ConfiguracionGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
